@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цыганков Иван. ИС 3.2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Тест по информатике</h1>
+    <table border="1" id="q1">
+        <tr>
+            <td rowspan="3">1</td>
+            <td colspan="4" class="task">
+            Определить значение целочисленных переменных a и b после выполнения фрагментов программы 
+            (нижу представлена одна и та же программа, записанная на разных языках программипрвания):
+            <img src="Новая папка/testexercise1.png" alt="задача">
+            </td>
+    </tr>
+    <tr>
+        <td class="variant">1) a = 42, b = 14 </td>
+        <td class="variant">2) a = 1, b = 42 </td>
+        <td class="variant">3) a = 0, b = 588 </td>
+        <td class="variant">4) a = 14, b = 42 </td>
+    </tr>
+    <tr>
+        <td colspan="5">
+                <input id="a1" type="text" class="answer" placeholder="Ответ">
+            </td>
+        </tr>
+    </table>
+
+    <table border="1" id="q2">
+        <tr>
+            <td rowspan="3">2</td>
+            <td colspan="4" class="task">
+            Определить значение целочисленных переменных a и b после выполнения фрагментов программы:
+            <td><img src="Новая папка/testexercise2.png" alt=""></td>
+            </td>
+    </tr>
+    <tr>
+        <td class="variant">1) a = 22, b = 20 </td>
+        <td class="variant">2) a = 4682, b = 4680 </td>
+        <td class="variant">3) a = 8246, b = 246 </td>
+        <td class="variant">4) a = 470, b = 468</td>
+    </tr>
+    <tr>
+        <td colspan="5">
+                <input type="text" class="answer" id="a2" placeholder="Ответ">
+            </td>
+        </tr>
+    </table>
+
+    <table border="1" id="q3">
+        <tr>
+            <td rowspan="3">3</td>
+            <td colspan="4" class="task">
+            Определить значение переменной c выполнения следующего фрагментов программы:
+            <td><img src="Новая папка/testexercise3.png" alt=""></td>
+            </td>
+    </tr>
+    <tr>
+        <td class="variant">1) c = -11 </td>
+        <td class="variant">2) c = 15 </td>
+        <td class="variant">3) c = 27 </td>
+        <td class="variant">4) c = 33 </td>
+    </tr>
+    <tr>
+        <td colspan="5">
+                <input type="text" class="answer" id="a3" placeholder="Ответ">
+            </td>
+        </tr>
+    </table>
+
+    <table border="1" id="q4">
+        <tr>
+            <td rowspan="3">4</td>
+            <td colspan="4" class="task">
+            Определить значение переменной c выполнения следующего фрагментов программы 
+            (нижу представлена одна и та же программа, записанная на разных языках программипрвания):
+            <td><img src="Новая папка/testexercise4.png" alt=""></td>
+            </td>
+    </tr>
+    <tr>
+        <td class="variant">1) c = 20 </td>
+        <td class="variant">2) c = 70 </td>
+        <td class="variant">3) c = -20</td>
+        <td class="variant">4) c = 180 </td>
+    </tr>
+    <tr>
+        <td colspan="5">
+                <input type="text" class="answer" id="a4" placeholder="Ответ">
+            </td>
+        </tr>
+    </table>
+
+    <table border="1" id="q5">
+        <tr>
+            <td rowspan="3">5</td>
+            <td colspan="4" class="task">
+                Определить значение переменной c выполнения следующего фрагментов программы 
+                (нижу представлена одна и та же программа, записанная на разных языках программипрвания):
+                <td><img src="Новая папка/testexercise5.png" alt=""></td>
+            </td>
+    </tr>
+    <tr>
+        <td class="variant">1) c = 10 </td>
+        <td class="variant">2) c = -200 </td>
+        <td class="variant">3) c = 40 </td>
+        <td class="variant">4) c = 440 </td>
+    </tr>
+    <tr>
+        <td colspan="5">
+                <input type="text" class="answer" id="a5" placeholder="Ответ">
+            </td>
+        </tr>
+    </table>
+
+    <button onclick="Check()">Проверить</button>
+    <div>Правильно:<span id="score"></span></div>
+    <p>Разработчики:
+        Цыганков Иван
+    </p>
+
+
+    <script>
+
+
+        function Check() {
+            let answers=['4','2','4','1','4'];//массив с ответами
+           
+            let questions=8;
+            let score=0;
+            for(let i=1;i<=answers.length;i++)//создаем цикл от 1 до длины массива answers. Переменная i-будет счетчиком цикла(1,2,3)
+        {
+            let q = document.getElementById('q'+i);//получаем ссылку на объект table с вопросом
+            let a = document.getElementById('a'+i);//получаем ссылку на объект input с ответом пользователя
+            if (a.value == answers[i-1]) {//если ответ совпадает с правильным ответом
+                q.style.border = '1px solid green ';//окрашиваем табличку с вопросом в зеленый цвет
+                score++;//увеличиваем количество правильных ответов
+            }
+            else {
+                q.style.border = '1px solid red';//если ответ не совпадает, то окрашиваем табличку в красный цвет
+            }
+        }
+
+
+            document.getElementById('score').innerHTML=score;//находим элемент с id score и меняем его внутреннее содержимое на score
+
+
+        }
+    </script>
+</body>
+</html>
